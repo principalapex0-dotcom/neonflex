@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprendé a crear Letreros LED y Resina Epóxica</title>
+  <meta name="description" content="Aprendé a crear letreros LED y cuadros de resina epóxica para vender productos personalizados y desarrollar tu propio emprendimiento.">
+  <style>
+    :root{
+      --bg:#08090d; --card:#11131a; --text:#f5f7fb; --muted:#a8adba;
+      --accent:#65f7ff; --accent2:#a86cff; --line:#242733;
+      --max:1120px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(92%,var(--max));margin:auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(8,9,13,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:22px;font-weight:900;letter-spacing:.5px}
+    .logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:26px;color:#d9dce5;font-size:14px}
+    .nav-btn{padding:11px 18px;border-radius:999px;background:linear-gradient(90deg,var(--accent),#8cfaff);color:#071014;font-weight:800}
+    .hero{padding:95px 0 80px;background:
+      radial-gradient(circle at 15% 20%,rgba(101,247,255,.16),transparent 32%),
+      radial-gradient(circle at 85% 30%,rgba(168,108,255,.17),transparent 34%)}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}
+    .eyebrow{display:inline-block;color:var(--accent);font-weight:800;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px}
+    h1{font-size:clamp(42px,6vw,72px);line-height:1.02;letter-spacing:-2.5px;margin-bottom:22px}
+    h1 span{color:var(--accent)}
+    .hero p{font-size:19px;color:var(--muted);max-width:650px;margin-bottom:30px}
+    .cta{display:inline-flex;align-items:center;justify-content:center;padding:16px 25px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#a7fbff);color:#071014;font-weight:900;box-shadow:0 0 35px rgba(101,247,255,.18)}
+    .small-note{font-size:13px;color:#777d8b;margin-top:13px}
+    .visual{min-height:450px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,#151824,#090a0f);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.35)}
+    .hero-photo{padding:22px;min-height:500px}
+    .hero-photo img{width:100%;height:450px;object-fit:cover;border-radius:18px;filter:saturate(1.08);box-shadow:0 0 55px rgba(101,247,255,.13)}
+    .hero-photo-badge{position:absolute;left:38px;bottom:38px;padding:10px 15px;border-radius:999px;background:rgba(8,9,13,.84);border:1px solid rgba(101,247,255,.5);color:var(--accent);font-size:12px;font-weight:900;letter-spacing:1px}
+    section{padding:85px 0}
+    .section-head{text-align:center;max-width:760px;margin:0 auto 45px}
+    .section-head h2{font-size:clamp(31px,4vw,48px);line-height:1.08;margin-bottom:14px}
+    .section-head p{color:var(--muted);font-size:17px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:27px}
+    .icon{font-size:30px;margin-bottom:14px}
+    .card h3{margin-bottom:8px;font-size:20px}
+    .card p{color:var(--muted);font-size:15px}
+    .dark-band{background:#0d0f15;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .opportunity{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+    .opportunity h2{font-size:clamp(32px,4vw,50px);line-height:1.08;margin-bottom:18px}
+    .opportunity p{color:var(--muted);font-size:17px}
+    .list{margin-top:25px;display:grid;gap:13px}
+    .list div{display:flex;gap:12px;align-items:flex-start}
+    .check{color:var(--accent);font-weight:900}
+    .income-box{border:1px solid var(--line);border-radius:25px;padding:32px;background:linear-gradient(145deg,#151824,#0b0c11)}
+    .income-box h3{font-size:25px;margin-bottom:20px}
+    .income-item{padding:17px 0;border-bottom:1px solid var(--line)}
+    .income-item:last-child{border:0}
+    .income-item strong{display:block}
+    .income-item span{color:var(--muted);font-size:14px}
+    .steps{counter-reset:step;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .step{position:relative;padding:30px;background:var(--card);border:1px solid var(--line);border-radius:18px}
+    .step:before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--accent);color:#061014;font-weight:900;margin-bottom:18px}
+    .offer{background:linear-gradient(145deg,#11151c,#171126);border:1px solid #34364a;border-radius:28px;padding:45px;text-align:center;max-width:900px;margin:auto;box-shadow:0 20px 80px rgba(0,0,0,.3)}
+    .offer h2{font-size:clamp(32px,5vw,55px);line-height:1.05;margin-bottom:15px}
+    .offer p{color:var(--muted);max-width:680px;margin:0 auto 25px}
+    .badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:20px 0 28px}
+    .badge{border:1px solid var(--line);padding:9px 13px;border-radius:999px;color:#d9dce5;font-size:13px}
+    .results-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px;margin-bottom:18px}
+    .result-photo{margin:0;background:#11131a;border:1px solid var(--line);border-radius:20px;overflow:hidden;position:relative}
+    .result-photo img{display:block;width:100%;height:340px;object-fit:cover}
+    .result-photo.large img{height:420px}
+    .result-photo figcaption{position:absolute;left:15px;bottom:15px;padding:9px 12px;border-radius:9px;background:rgba(8,9,13,.82);font-size:13px;font-weight:800}
+    .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .video-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;overflow:hidden}
+    .video-card h3{font-size:15px;padding:10px 4px 3px}
+    .video-frame{aspect-ratio:16/10;background:#050609;border-radius:12px;overflow:hidden}
+    .video-frame iframe{width:100%;height:100%;border:0}
+    .results-cta{text-align:center;margin-top:34px;padding:28px;border:1px solid #303442;border-radius:18px;background:linear-gradient(135deg,#11151c,#141126)}
+    .results-cta p{font-size:19px;margin-bottom:18px}
+    .faq{max-width:800px;margin:auto;display:grid;gap:12px}
+    details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+    summary{cursor:pointer;font-weight:800}
+    details p{color:var(--muted);padding-top:12px}
+    footer{border-top:1px solid var(--line);padding:35px 0;color:#858b99;text-align:center;font-size:13px}
+    @media(max-width:800px){
+      .nav-links{display:none}.hero{padding-top:65px}
+      .hero-grid,.opportunity{grid-template-columns:1fr}
+      .visual{min-height:360px}.hero-photo img{height:315px}
+      .results-grid,.video-grid,.cards,.steps{grid-template-columns:1fr}
+      .result-photo img,.result-photo.large img{height:360px}
+      section{padding:65px 0}.offer{padding:30px 20px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#" class="logo">NEON<span>PRO</span></a>
+      <div class="nav-links">
+        <a href="#aprende">Qué vas a aprender</a>
+        <a href="#negocio">Tu negocio</a><a href="#resultados">Resultados</a>
+        <a href="#faq">Preguntas</a>
+      </div>
+      <a href="#oferta" class="nav-btn">QUIERO APRENDER</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">CAPACITACIÓN DIGITAL</div>
+        <h1>Creá <span>letreros LED</span> y cuadros de resina epóxica para tu propio negocio.</h1>
+        <p>Aprendé a crear productos personalizados que podés vender a particulares, comercios y eventos. Empezá desde cero y convertí una habilidad creativa en una oportunidad de emprendimiento.</p>
+        <a href="https://go.hotmart.com/G107190723X?ap=8d66" class="cta" target="_blank" rel="noopener">QUIERO APRENDER Y EMPEZAR →</a>
+        <div class="small-note">Acceso digital • Aprendé a tu ritmo • Desde cero</div>
+      </div>
+      <div class="visual hero-photo" aria-label="Ejemplos reales de letreros LED">
+        <img src="letrero-hero.png" alt="Ejemplo de letrero LED personalizado">
+        <div class="hero-photo-badge">EJEMPLOS REALES</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="aprende">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">¿QUÉ VAS A APRENDER?</div>
+        <h2>Mucho más que una manualidad</h2>
+        <p>La idea es que puedas desarrollar productos para ofrecer diferentes soluciones a distintos tipos de clientes.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="icon">💡</div><h3>Letreros LED personalizados</h3><p>Creá diseños personalizados para habitaciones, emprendimientos, locales, regalos y espacios.</p></article>
+        <article class="card"><div class="icon">🖼️</div><h3>Cuadros de resina epóxica</h3><p>Aprendé a crear piezas decorativas y personalizadas con diferentes estilos y acabados.</p></article>
+        <article class="card"><div class="icon">🎨</div><h3>Diseños para vender</h3><p>Generá productos que puedan adaptarse a distintos gustos, ocasiones y necesidades.</p></article>
+        <article class="card"><div class="icon">🏪</div><h3>Productos para negocios</h3><p>Ofrecé letreros personalizados a comercios, emprendimientos y marcas que quieran destacar.</p></article>
+        <article class="card"><div class="icon">🎉</div><h3>Letreros para eventos</h3><p>Creá productos que puedan utilizarse en cumpleaños, celebraciones y diferentes eventos.</p></article>
+        <article class="card"><div class="icon">🎁</div><h3>Regalos personalizados</h3><p>Sumá productos únicos para fechas especiales y pedidos personalizados.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="negocio" class="dark-band">
+    <div class="container opportunity">
+      <div>
+        <div class="eyebrow">UNA HABILIDAD, MUCHAS OPORTUNIDADES</div>
+        <h2>Creá. Personalizá. Vendé.</h2>
+        <p>Una vez que aprendés a fabricar estos productos, podés desarrollar distintas líneas de negocio y ampliar tu catálogo progresivamente.</p>
+        <div class="list">
+          <div><span class="check">✓</span><span>Venta de letreros personalizados.</span></div>
+          <div><span class="check">✓</span><span>Letreros para negocios y emprendimientos.</span></div>
+          <div><span class="check">✓</span><span>Alquiler de letreros para eventos.</span></div>
+          <div><span class="check">✓</span><span>Venta de cuadros y productos de resina.</span></div>
+          <div><span class="check">✓</span><span>Pedidos especiales y regalos personalizados.</span></div>
+        </div>
+      </div>
+      <div class="income-box">
+        <h3>¿A quién podés venderle?</h3>
+        <div class="income-item"><strong>🏪 Comercios</strong><span>Letreros para destacar marcas y espacios.</span></div>
+        <div class="income-item"><strong>🎉 Organizadores de eventos</strong><span>Productos decorativos y personalizados.</span></div>
+        <div class="income-item"><strong>🎁 Particulares</strong><span>Regalos y decoración personalizada.</span></div>
+        <div class="income-item"><strong>💼 Emprendedores</strong><span>Identidad visual y decoración para sus negocios.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">EMPEZÁ DE CERO</div>
+        <h2>Un camino simple para comenzar</h2>
+        <p>No necesitás tener un negocio armado para empezar a aprender.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Aprendé</h3><p>Conocé el proceso y las técnicas necesarias para crear tus primeros productos.</p></div>
+        <div class="step"><h3>Creá</h3><p>Practicá y desarrollá tus propios diseños para construir un catálogo.</p></div>
+        <div class="step"><h3>Ofrecé</h3><p>Presentá tus productos a particulares, comercios y clientes para eventos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark-band">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">¿ES PARA VOS?</div>
+        <h2>Si querés emprender, puede ser un buen punto de partida.</h2>
+        <p>Especialmente si buscás aprender una habilidad práctica y desarrollar productos personalizados.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><h3>✓ Querés emprender</h3><p>Buscás una idea para comenzar un proyecto propio.</p></article>
+        <article class="card"><h3>✓ Te interesa lo personalizado</h3><p>Te gustan los productos únicos y hechos a pedido.</p></article>
+        <article class="card"><h3>✓ Querés ampliar tu catálogo</h3><p>Ya tenés un emprendimiento y querés sumar nuevas opciones.</p></article>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="resultados" class="dark-band">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">MIRÁ LOS RESULTADOS</div>
+        <h2>Esto es lo que podés aprender a crear</h2>
+        <p>Ejemplos reales para que veas el potencial de los productos personalizados y te imagines creando los tuyos.</p>
+      </div>
+
+      <div class="results-grid">
+        <figure class="result-photo large">
+          <img src="letrero-hero.png" alt="Letrero LED personalizado">
+          <figcaption>Letreros LED personalizados</figcaption>
+        </figure>
+        <figure class="result-photo">
+          <img src="letrero-clientes.jpg" alt="Letrero LED con diseño personalizado">
+          <figcaption>Diseños para clientes y negocios</figcaption>
+        </figure>
+      </div>
+
+      <div class="video-grid" style="margin-top:18px">
+        <figure class="result-photo">
+          <img src="galeria-1.jpg" alt="Letrero LED con diseño artístico">
+          <figcaption>Piezas artísticas y decorativas</figcaption>
+        </figure>
+        <figure class="result-photo">
+          <img src="galeria-2.jpg" alt="Letrero LED circular">
+          <figcaption>Diseños con formas y efectos</figcaption>
+        </figure>
+        <figure class="result-photo">
+          <img src="galeria-3.jpg" alt="Letrero LED de mascota">
+          <figcaption>Regalos y piezas personalizadas</figcaption>
+        </figure>
+      </div>
+
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-frame"><iframe src="https://drive.google.com/file/d/1h7DUMsArg78T1BVVsuVoO60vJEjWRUGE/preview" allow="autoplay"></iframe></div>
+          <h3>Proceso y resultados</h3>
+        </div>
+        <div class="video-card">
+          <div class="video-frame"><iframe src="https://drive.google.com/file/d/1CaNoIcKXu1QyDaEN8DTyX2nvpo_mpGhE/preview" allow="autoplay"></iframe></div>
+          <h3>Más ejemplos de trabajos</h3>
+        </div>
+        <div class="video-card">
+          <div class="video-frame"><iframe src="https://drive.google.com/file/d/1LB3Je7a4OnKIIPfBZblr81V41L3JSf0G/preview" allow="autoplay"></iframe></div>
+          <h3>Inspiración para tu catálogo</h3>
+        </div>
+      </div>
+
+      <div class="results-cta">
+        <p><strong>¿Te imaginás ofreciendo estos productos a tus propios clientes?</strong></p>
+        <a href="https://go.hotmart.com/G107190723X?ap=8d66" class="cta" target="_blank" rel="noopener">QUIERO APRENDER A HACERLOS →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="oferta">
+    <div class="container">
+      <div class="offer">
+        <div class="eyebrow">EMPEZÁ HOY</div>
+        <h2>Convertí tu creatividad en productos para vender.</h2>
+        <p>Aprendé a crear letreros LED y productos de resina epóxica y descubrí distintas formas de convertirlos en productos para vender, personalizar y ofrecer a negocios y eventos.</p>
+        <div class="badges">
+          <span class="badge">Capacitación digital</span>
+          <span class="badge">Desde cero</span>
+          <span class="badge">Aprendé a tu ritmo</span>
+        </div>
+        <a href="https://go.hotmart.com/G107190723X?ap=8d66" class="cta" target="_blank" rel="noopener">QUIERO ACCEDER A LA CAPACITACIÓN →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">PREGUNTAS FRECUENTES</div>
+        <h2>Antes de empezar</h2>
+      </div>
+      <div class="faq">
+        <details><summary>¿Para quién está pensada la capacitación?</summary><p>Está pensada para personas que quieren aprender a crear letreros LED y cuadros de resina epóxica y utilizar estas habilidades para desarrollar un negocio propio o sumar nuevos productos a un emprendimiento.</p></details>
+        <details><summary>¿Qué puedo hacer con lo aprendido?</summary><p>Podés crear productos personalizados para vender a particulares, comercios y emprendimientos, además de desarrollar propuestas para eventos y decoración.</p></details>
+        <details><summary>¿Puedo crear letreros personalizados?</summary><p>Sí. La propuesta está orientada a la creación de letreros personalizados, lo que te permite adaptar los productos a diferentes clientes, marcas, negocios y ocasiones.</p></details>
+        <details><summary>¿Puedo ofrecer letreros para eventos?</summary><p>Sí. Una de las oportunidades comerciales es ofrecer o alquilar letreros para cumpleaños, celebraciones y otros eventos.</p></details>
+        <details><summary>¿Puedo empezar mi propio negocio?</summary><p>La capacitación puede darte una habilidad y una línea de productos para desarrollar tu emprendimiento. Tus resultados dependerán de factores como práctica, costos, precios, calidad, promoción y búsqueda de clientes.</p></details>
+        <details><summary>¿Cuánto dinero puedo ganar?</summary><p>No existe una ganancia garantizada. Lo que puedas generar dependerá de los productos que fabriques, tus costos, precios, cantidad de ventas y estrategia comercial.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© 2026 — Tu marca. Todos los derechos reservados.</div>
+</footer>
+
+</body>
+</html>
